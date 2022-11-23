@@ -1,0 +1,502 @@
+[
+    {
+        "id": "1",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/n62MZF6",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/SnqCnzh",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "William Smith",
+            "email": "william22@gmail.com",
+            "phone": "+1234567890",
+            "address": "123, New York, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/dfWKwd0/user-five.jpg",
+            "sellerRating": "4.4",
+            "sellerRatingCount": "245"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "123 Sir. Jorge Washington Street",
+            "houseNumber": "123",
+            "flatNo": "201",
+            "zip": "10001"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "true"
+        }
+    },
+    {
+        "id": "2",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/3SJfzGd",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/5Gds8gB",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Margaret Jenkins",
+            "email": "margaret.jenkins@gmail.com",
+            "phone": "+1234567891",
+            "address": "143, Washington DC, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/VM5txp6/user-one.jpg",
+            "sellerRating": "4.5",
+            "sellerRatingCount": "100"
+        },
+        "location": {
+            "city": "Washington DC",
+            "state": "DC",
+            "country": "USA",
+            "street": "143 Sir. Methew Rogar Street",
+            "houseNumber": "143",
+            "flatNo": "201",
+            "zip": "10001"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "3",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/HTCXyvR",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/vXpzBH8",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Jonathone Spiket",
+            "email": "jonathone@gmail.com",
+            "phone": "+1234567892",
+            "address": "53, Piller Poe Bridge, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/LzPKk2s/user-four.jpg",
+            "sellerRating": "4.5",
+            "sellerRatingCount": "100"
+        },
+        "location": {
+            "city": "Harverd Lake City",
+            "state": "IN",
+            "country": "USA",
+            "street": "53 Sir. Brave Roager Street",
+            "houseNumber": "503",
+            "flatNo": "256",
+            "zip": "100434"
+        },
+        "postInfo": {
+            "type": "ADVERTISEMENT",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "4",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/2yxCtH4",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/02j0PGX",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Uurik Jnniking",
+            "email": "uurik-jnnike@gmail.com",
+            "phone": "+123453466565",
+            "address": "5334, Panama Cannel Hub, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/9WfFBHt/user-two.jpg",
+            "sellerRating": "4.7",
+            "sellerRatingCount": "197"
+        },
+        "location": {
+            "city": "Harverd Lake City",
+            "state": "IN",
+            "country": "USA",
+            "street": "53 Sir. Brave Roager Street",
+            "houseNumber": "503",
+            "flatNo": "256",
+            "zip": "100434"
+        },
+        "postInfo": {
+            "type": "ADVERTISEMENT",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "5",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/Ssnv3YC",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/zQkH4N7",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Mokami Hnakewoo",
+            "email": "mokami@gmail.com",
+            "phone": "+1234534665344",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/kHPxGZH/user-six.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "ADVERTISEMENT",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "6",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/Jy8kNf1",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/vc938Df",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Lucy Luxam Pero",
+            "email": "lucy@gmail.com",
+            "phone": "+123453466534",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/dfWKwd0/user-five.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "7",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/FnQd0YJ",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/4gmVXfZ",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Mauri Mauo Mapu",
+            "email": "muri-mauo@gmail.com",
+            "phone": "+123453466534",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/LzPKk2s/user-four.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "8",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/WWtLnvY",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/vc5p12v",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Welolo Wellolo",
+            "email": "welolo.wellolo@gmail.com",
+            "phone": "+123453466534",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/LkTf6Pw/user-three.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "9",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/MCB94MV",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/Czvz2Sn",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Salman Crudi",
+            "email": "salman@gmail.com",
+            "phone": "+12345346653434",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/9WfFBHt/user-two.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    },
+    {
+        "id": "10",
+        "brandName": "Toyota",
+        "model": "Camry",
+        "year": "2015",
+        "brandNewPrice": "20000",
+        "resellPrice": "16000",
+        "color": "White",
+        "timeOfUsed": "2 years",
+        "image": "https://ibb.co/XzSQzVQ",
+        "description": "Toyota Camry is a mid-size car manufactured by Toyota since 1982, sold primarily in North America, Asia, and Australia. It is Toyota's most popular car in the United States and Japan, with over 15 million units sold worldwide.",
+        "category": {
+            "name": "SEDAN",
+            "brandLogo": "https://ibb.co/5YWn06S",
+            "description": "Luxurious cars are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world. They are the most expensive cars in the world."
+        },
+        "seller": {
+            "name": "Noviyana Northom",
+            "email": "noviyana@gmail.com",
+            "phone": "+12345346653434",
+            "address": "5444, Statue Fort, USA",
+            "isVerified": true,
+            "sellerStatus": "SELLER",
+            "sellerImg": "https://i.ibb.co/VM5txp6/user-one.jpg",
+            "sellerRating": "4.8",
+            "sellerRatingCount": "166"
+        },
+        "location": {
+            "city": "New York",
+            "state": "NY",
+            "country": "USA",
+            "street": "53 Lemon Luis Street",
+            "houseNumber": "444",
+            "flatNo": "267",
+            "zip": "1004776"
+        },
+        "postInfo": {
+            "type": "SELL",
+            "publishingDate": "2022-10-01",
+            "expireDate": "2023-01-01",
+            "publishingTime": "10:00 AM",
+            "views": "100",
+            "likes": "50",
+            "comments": "10",
+            "status": "PUBLISHED",
+            "isFeatured": "true",
+            "isUrgent": "true",
+            "isSold": "false"
+        }
+    }
+]
