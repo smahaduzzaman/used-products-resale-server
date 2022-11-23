@@ -4,6 +4,8 @@
   "description": "This is a product resale website build by s m ahaduzzaman for the assignment of programminghero batch-6. I fell very curius and curagus for this project.",
   "main": "index.js",
   "scripts": {
+    "start-dev": "node index.js",
+    "start": "CHOKIDAR_USEPOLLING=true react-scripts start",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
