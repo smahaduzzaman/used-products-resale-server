@@ -1,0 +1,26 @@
+[
+    {
+        "id": "100101",
+        "name": "Hatchback"
+    },
+    {
+        "id": "100102",
+        "name": "Crossover"
+    },
+    {
+        "id": "100103",
+        "name": "Convertible"
+    },
+    {
+        "id": "100104",
+        "name": "Station Wagon"
+    },
+    {
+        "id": "100105",
+        "name": "Sports Car"
+    },
+    {
+        "id": "100106",
+        "name": "All Cars"
+    }
+]
