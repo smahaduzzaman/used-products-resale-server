@@ -172,7 +172,7 @@
         "seller": {
             "name": "Uurik Jnniking",
             "email": "uurik-jnnike@gmail.com",
-            "phone": "+123453466565",
+            "phone": "+123456789300",
             "address": "5334, Panama Cannel Hub, USA",
             "isVerified": true,
             "sellerStatus": "SELLER",
@@ -181,10 +181,10 @@
             "sellerRatingCount": "197"
         },
         "location": {
-            "city": "Harverd Lake City",
-            "state": "IN",
+            "city": "Northbrook",
+            "state": "NB",
             "country": "USA",
-            "street": "53 Sir. Brave Roager Street",
+            "street": "2504 Lowland Drive",
             "houseNumber": "503",
             "flatNo": "256",
             "zip": "100434"
@@ -223,7 +223,7 @@
         "seller": {
             "name": "Mokami Hnakewoo",
             "email": "mokami@gmail.com",
-            "phone": "+1234534665344",
+            "phone": "+123453466509098",
             "address": "5444, Statue Fort, USA",
             "isVerified": true,
             "sellerStatus": "SELLER",
@@ -232,10 +232,10 @@
             "sellerRatingCount": "166"
         },
         "location": {
-            "city": "New York",
-            "state": "NY",
+            "city": "Orangeburg",
+            "state": "OR",
             "country": "USA",
-            "street": "53 Lemon Luis Street",
+            "street": "2840 Java Lane",
             "houseNumber": "444",
             "flatNo": "267",
             "zip": "1004776"
@@ -283,10 +283,10 @@
             "sellerRatingCount": "166"
         },
         "location": {
-            "city": "New York",
-            "state": "NY",
+            "city": "Lawrence",
+            "state": "LA",
             "country": "USA",
-            "street": "53 Lemon Luis Street",
+            "street": "3896 Dog Hill Lane",
             "houseNumber": "444",
             "flatNo": "267",
             "zip": "1004776"
@@ -334,11 +334,11 @@
             "sellerRatingCount": "166"
         },
         "location": {
-            "city": "New York",
-            "state": "NY",
+            "city": "Santa Ana",
+            "state": "SA",
             "country": "USA",
-            "street": "53 Lemon Luis Street",
-            "houseNumber": "444",
+            "street": "005 Heavens Way",
+            "houseNumber": "442",
             "flatNo": "267",
             "zip": "1004776"
         },
@@ -385,11 +385,11 @@
             "sellerRatingCount": "166"
         },
         "location": {
-            "city": "New York",
-            "state": "NY",
+            "city": "Winston Salem",
+            "state": "WS",
             "country": "USA",
-            "street": "53 Lemon Luis Street",
-            "houseNumber": "444",
+            "street": "1125 Bryan Street",
+            "houseNumber": "4e3",
             "flatNo": "267",
             "zip": "1004776"
         },
@@ -436,12 +436,12 @@
             "sellerRatingCount": "166"
         },
         "location": {
-            "city": "New York",
+            "city": "Madisonville",
             "state": "NY",
             "country": "USA",
-            "street": "53 Lemon Luis Street",
-            "houseNumber": "444",
-            "flatNo": "267",
+            "street": "732 Coffman Alley",
+            "houseNumber": "409",
+            "flatNo": "26",
             "zip": "1004776"
         },
         "postInfo": {
