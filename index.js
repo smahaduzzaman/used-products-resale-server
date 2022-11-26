@@ -20,11 +20,18 @@ async function run() {
         const carsCollection = await client.db("xclusiveCars").collection("cars");
         const categoriesCollection = await client.db("xclusiveCars").collection("categories");
         const ordersCollection = await client.db("xclusiveCars").collection("orders");
+        const usersCollection = await client.db("xclusiveCars").collection("users");
 
         app.get('/cars', async (req, res) => {
             const query = {};
-            const cars = await carsCollection.find(query).toArray();
+            const cars = await carsCollection.find(query).limit(3).toArray();
             res.send(cars);
+        })
+
+        app.get('/viewallcars', async (req, res) => {
+            const query = {};
+            const allcars = await carsCollection.find(query).toArray();
+            res.send(allcars);
         })
 
         app.get('/categories', async (req, res) => {
@@ -33,11 +40,36 @@ async function run() {
             res.send(categories);
         })
 
+        // app.get('/orders', async (req, res) => {
+        //     const query = {};
+        //     const orders = await ordersCollection.find(query).toArray();
+        //     res.send(orders);
+        // })
 
         app.post('/orders', async (req, res) => {
             const order = req.body;
+
+            // Already Exist Check
+            const query = {
+                model: orders.model,
+                email: orders.email,
+                price: orders.price,
+            };
+
+            const alreadyExist = await ordersCollection.findOne(query).toArray();
+            if (alreadyExist.length) {
+                return res.send({ acknowledged: false, message: 'Already Exist' });
+            }
+
             const result = await ordersCollection.insertOne(order);
-            res.json(result);
+            res.send(result);
+        })
+
+        app.get('/orders', async (req, res) => {
+            const email = req.query.email;
+            const query = { email: email };
+            const orders = await ordersCollection.find(query).toArray();
+            res.send(orders);
         })
 
         app.get('/categories/:id', async (req, res) => {
@@ -45,6 +77,12 @@ async function run() {
             const query = { _id: ObjectId(id) };
             const category = await categoriesCollection.findOne(query);
             res.send(category);
+        })
+
+        app.post('/users', async (req, res) => {
+            const user = req.body;
+            const result = await usersCollection.insertOne(user);
+            res.send(result);
         })
 
 
