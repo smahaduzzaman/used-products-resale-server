@@ -2,8 +2,8 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
-const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 require('dotenv').config();
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 const port = process.env.PORT || 5000;
 const app = express();
 
@@ -41,19 +41,18 @@ async function run() {
         const categoriesCollection = await client.db("xclusiveCars").collection("categories");
         const ordersCollection = await client.db("xclusiveCars").collection("orders");
         const usersCollection = await client.db("xclusiveCars").collection("users");
+        const paymentsCollection = await client.db("xclusiveCars").collection("payments");
 
-        app.post("/create-payment-intent", async (req, res) => {
+        app.post('/create-payment-intent', async (req, res) => {
             const order = req.body;
-            const price = order.price;
-            const amount = price * 100;
+            const amount = order.price;
+
             const paymentIntent = await stripe.paymentIntents.create({
                 amount: amount,
                 currency: "usd",
-                "payment_method_types": {
-                    "card": {
-                        "request_three_d_secure": "any"
-                    }
-                },
+                "payment_method_types": [
+                    "card"
+                ]
             });
 
             res.send({
@@ -61,6 +60,21 @@ async function run() {
             });
         });
 
+
+        app.post('/payments', async (req, res) => {
+            const payment = req.body;
+            const result = await paymentsCollection.insertOne(payment);
+            const id = payment.bookingId
+            const filter = { _id: ObjectId(id) }
+            const updatedDoc = {
+                $set: {
+                    paid: true,
+                    transactionId: payment.transactionId
+                }
+            }
+            const updatedResult = await ordersCollection.updateOne(filter, updatedDoc)
+            res.send(result);
+        })
 
 
         app.get('/cars', async (req, res) => {
@@ -149,6 +163,20 @@ async function run() {
             res.send(users);
         })
 
+        app.get('/users/buyers', async (req, res) => {
+            const query = { role: 'buyer' };
+            const buyers = await usersCollection.find(query).toArray();
+            console.log(buyers);
+            res.send(buyers);
+        })
+
+        app.get('/users/sellers', async (req, res) => {
+            const query = { role: 'seller' };
+            const sellers = await usersCollection.find(query).toArray();
+            console.log(sellers);
+            res.send(sellers);
+        })
+
         app.get('/users/admin/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email };
@@ -186,6 +214,12 @@ async function run() {
             const car = req.body;
             const result = await carsCollection.insertOne(car);
             res.send(result);
+        })
+
+        app.get('/cars/allcars', async (req, res) => {
+            const query = {};
+            const allcars = await carsCollection.find(query).toArray();
+            res.send(allcars);
         })
     }
 
