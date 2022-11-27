@@ -2,6 +2,7 @@ const express = require('express');
 const cors = require('cors');
 const jwt = require('jsonwebtoken');
 const { MongoClient, ServerApiVersion, ObjectId } = require('mongodb');
+const stripe = require("stripe")(process.env.STRIPE_SECRET_KEY);
 require('dotenv').config();
 const port = process.env.PORT || 5000;
 const app = express();
@@ -41,9 +42,30 @@ async function run() {
         const ordersCollection = await client.db("xclusiveCars").collection("orders");
         const usersCollection = await client.db("xclusiveCars").collection("users");
 
+        app.post("/create-payment-intent", async (req, res) => {
+            const order = req.body;
+            const price = order.price;
+            const amount = price * 100;
+            const paymentIntent = await stripe.paymentIntents.create({
+                amount: amount,
+                currency: "usd",
+                "payment_method_types": {
+                    "card": {
+                        "request_three_d_secure": "any"
+                    }
+                },
+            });
+
+            res.send({
+                clientSecret: paymentIntent.client_secret,
+            });
+        });
+
+
+
         app.get('/cars', async (req, res) => {
             const query = {};
-            const cars = await carsCollection.find(query).limit(3).toArray();
+            const cars = await carsCollection.find(query).toArray(); //.limit(3)
             res.send(cars);
         })
 
@@ -59,20 +81,27 @@ async function run() {
             res.send(categories);
         })
 
-        // app.get('/orders', async (req, res) => {
-        //     const query = {};
-        //     const orders = await ordersCollection.find(query).toArray();
-        //     res.send(orders);
-        // })
+        app.get('/orders', async (req, res) => {
+            const query = {};
+            const orders = await ordersCollection.find(query).toArray();
+            res.send(orders);
+        })
+
+        app.get('/orders/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) };
+            const order = await ordersCollection.findOne(query);
+            res.send(order);
+
+        })
 
         app.post('/orders', async (req, res) => {
             const order = req.body;
 
             // Already Exist Check
             const query = {
-                model: orders.model,
-                email: orders.email,
-                price: orders.price,
+                model: order.model,
+                email: order.email,
+                price: order.price,
             };
 
             const alreadyExist = await ordersCollection.findOne(query).toArray();
@@ -120,13 +149,27 @@ async function run() {
             res.send(users);
         })
 
+        app.get('/users/admin/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email };
+            const user = await usersCollection.findOne(query);
+            res.send({ isAdmin: user?.role == 'admin' });
+        })
+
         app.post('/users', async (req, res) => {
             const user = req.body;
             const result = await usersCollection.insertOne(user);
             res.send(result);
         })
 
-        app.put('/users/admin/:id', async (req, res) => {
+        app.put('/users/admin/:id', verifyJWT, async (req, res) => {
+            const decodedEmail = req.decoded.email;
+            const query = { email: decodedEmail };
+            const user = await usersCollection.findOne(query);
+            if (user?.role !== 'admin') {
+                return res.status(403).send({ message: 'Invalid user' });
+            }
+
             const id = req.params.id;
             const filter = { _id: ObjectId(id) };
             const options = { upset: true };
@@ -136,6 +179,12 @@ async function run() {
                 },
             };
             const result = await usersCollection.updateOne(filter, updateDoc, options);
+            res.send(result);
+        })
+
+        app.post('/cars', async (req, res) => {
+            const car = req.body;
+            const result = await carsCollection.insertOne(car);
             res.send(result);
         })
     }
