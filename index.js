@@ -42,6 +42,7 @@ async function run() {
         const ordersCollection = await client.db("xclusiveCars").collection("orders");
         const usersCollection = await client.db("xclusiveCars").collection("users");
         const paymentsCollection = await client.db("xclusiveCars").collection("payments");
+        const adsCollection = await client.db("xclusiveCars").collection("ads");
 
         app.post('/create-payment-intent', async (req, res) => {
             const order = req.body;
@@ -83,17 +84,6 @@ async function run() {
             res.send(cars);
         })
 
-        app.patch('/cars/makeads/:id', async (req, res) => {
-            const id = req.params.id;
-            const filter = { _id: ObjectId(id) }
-            const updatedDoc = {
-                $set: {
-                    isAd: true
-                }
-            }
-            const result = await carsCollection.updateOne(filter, updatedDoc)
-            res.send(result);
-        })
 
         app.get('/viewallcars', async (req, res) => {
             const query = {};
@@ -124,13 +114,6 @@ async function run() {
         //         const category_news = news.filter(n => n.category_id === id);
         //         res.send(category_news);
         //     }
-        // })
-
-
-            // app.get('/users/sellers', async (req, res) => {
-        //     const query = { role: 'seller' };
-        //     const sellers = await usersCollection.find(query).toArray();
-        //     res.send(sellers);
         // })
 
 
@@ -247,6 +230,22 @@ async function run() {
             res.send(result);
         })
 
+
+        // post ads to adsCollection
+        app.post('/ads', async (req, res) => {
+            const ad = req.body;
+            const result = await adsCollection.insertOne(ad);
+            res.send(result);
+        })
+
+        // get ads from adsCollection
+        app.get('/ads', async (req, res) => {
+            const query = {};
+            const ads = await adsCollection.find(query).toArray();
+            res.send(ads);
+        })
+
+
         app.get('/cars/allcars', async (req, res) => {
             const query = {};
             const allcars = await carsCollection.find(query).toArray();
@@ -254,8 +253,7 @@ async function run() {
         })
     }
 
-    finally {
-    }
+    finally { }
 }
 
 run().catch(console.log);
