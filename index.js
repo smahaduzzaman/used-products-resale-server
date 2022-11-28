@@ -43,6 +43,7 @@ async function run() {
         const usersCollection = await client.db("xclusiveCars").collection("users");
         const paymentsCollection = await client.db("xclusiveCars").collection("payments");
         const adsCollection = await client.db("xclusiveCars").collection("ads");
+        const wishlistCollection = await client.db("xclusiveCars").collection("wishlist");
 
         app.post('/create-payment-intent', async (req, res) => {
             const order = req.body;
@@ -148,6 +149,24 @@ async function run() {
             res.send(result);
         })
 
+        app.post('/orders/ads', async (req, res) => {
+            const ads = req.body;
+            const result = await ordersCollection.insertOne(ads);
+            res.send(result);
+        })
+
+        app.post('/wishlist', async (req, res) => {
+            const wishlist = req.body;
+            const result = await wishlistCollection.insertOne(wishlist);
+            res.send(result);
+        })
+
+        app.get('/wishlist', async (req, res) => {
+            const query = {};
+            const wishlist = await wishlistCollection.find(query).toArray();
+            res.send(wishlist);
+        })
+
         app.get('/orders', verifyJWT, async (req, res) => {
             const email = req.query.email;
             const decodedEmail = req.decoded.email;
@@ -241,7 +260,7 @@ async function run() {
         // get ads from adsCollection
         app.get('/ads', async (req, res) => {
             const query = {};
-            const ads = await adsCollection.find(query).toArray();
+            const ads = await adsCollection.find(query).limit(2).toArray();
             res.send(ads);
         })
 
