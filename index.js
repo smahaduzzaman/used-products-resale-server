@@ -83,6 +83,18 @@ async function run() {
             res.send(cars);
         })
 
+        app.patch('/cars/makeads/:id', async (req, res) => {
+            const id = req.params.id;
+            const filter = { _id: ObjectId(id) }
+            const updatedDoc = {
+                $set: {
+                    isAd: true
+                }
+            }
+            const result = await carsCollection.updateOne(filter, updatedDoc)
+            res.send(result);
+        })
+
         app.get('/viewallcars', async (req, res) => {
             const query = {};
             const allcars = await carsCollection.find(query).toArray();
@@ -95,6 +107,33 @@ async function run() {
             res.send(categories);
         })
 
+
+        // app.get('/category/:id', (req, res) => {
+        //     const id = req.params.id;
+        //     const query = { _id: ObjectId(id) };
+        //     categoriesCollection.find(query)
+        //         .toArray((err, documents) => {
+        //             res.send(documents[0]);
+        //         })
+        // }
+        //     if (id === '08') {
+        //         const query = carsCollection.find()
+        //         res.send();
+        //     }
+        //     else {
+        //         const category_news = news.filter(n => n.category_id === id);
+        //         res.send(category_news);
+        //     }
+        // })
+
+
+            // app.get('/users/sellers', async (req, res) => {
+        //     const query = { role: 'seller' };
+        //     const sellers = await usersCollection.find(query).toArray();
+        //     res.send(sellers);
+        // })
+
+
         app.get('/orders', async (req, res) => {
             const query = {};
             const orders = await ordersCollection.find(query).toArray();
@@ -105,7 +144,6 @@ async function run() {
             const query = { _id: ObjectId(req.params.id) };
             const order = await ordersCollection.findOne(query);
             res.send(order);
-
         })
 
         app.post('/orders', async (req, res) => {
@@ -138,12 +176,7 @@ async function run() {
             res.send(orders);
         })
 
-        app.get('/categories/:id', async (req, res) => {
-            const id = req.params.id;
-            const query = { _id: ObjectId(id) };
-            const category = await categoriesCollection.findOne(query);
-            res.send(category);
-        })
+
 
         app.get('/jwt', async (req, res) => {
             const email = req.query.email;
@@ -166,14 +199,12 @@ async function run() {
         app.get('/users/buyers', async (req, res) => {
             const query = { role: 'buyer' };
             const buyers = await usersCollection.find(query).toArray();
-            console.log(buyers);
             res.send(buyers);
         })
 
         app.get('/users/sellers', async (req, res) => {
             const query = { role: 'seller' };
             const sellers = await usersCollection.find(query).toArray();
-            console.log(sellers);
             res.send(sellers);
         })
 
