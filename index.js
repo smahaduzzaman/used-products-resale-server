@@ -44,6 +44,7 @@ async function run() {
         const paymentsCollection = await client.db("xclusiveCars").collection("payments");
         const adsCollection = await client.db("xclusiveCars").collection("ads");
         const wishlistCollection = await client.db("xclusiveCars").collection("wishlist");
+        const reportedItemsCollection = await client.db("xclusiveCars").collection("reported-items");
 
         app.post('/create-payment-intent', async (req, res) => {
             const order = req.body;
@@ -141,6 +142,18 @@ async function run() {
             res.send(wishlist);
         })
 
+        app.post('/reportlist', async (req, res) => {
+            const reportlist = req.body;
+            const result = await reportedItemsCollection.insertOne(reportlist);
+            res.send(result);
+        })
+
+        app.get('/reportlist', async (req, res) => {
+            const query = {};
+            const reportlist = await reportedItemsCollection.find(query).toArray();
+            res.send(reportlist);
+        })
+
         app.get('/orders', verifyJWT, async (req, res) => {
             const email = req.query.email;
             const decodedEmail = req.decoded.email;
@@ -179,6 +192,12 @@ async function run() {
         app.delete('/wishlist/:id', async (req, res) => {
             const query = { _id: ObjectId(req.params.id) };
             const result = await wishlistCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        app.delete('/reportlist/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) };
+            const result = await reportedItemsCollection.deleteOne(query);
             res.send(result);
         })
 
@@ -233,7 +252,7 @@ async function run() {
             res.send(result);
         })
 
-        app.put('/users/admin/:id', async (req, res) => { //verifyJWT,
+        app.put('/users/admin/:id', verifyJWT, async (req, res) => {
             const decodedEmail = req.decoded.email;
             const query = { email: decodedEmail };
             const user = await usersCollection.findOne(query);
