@@ -48,7 +48,6 @@ async function run() {
         app.post('/create-payment-intent', async (req, res) => {
             const order = req.body;
             const amount = order.price;
-
             const paymentIntent = await stripe.paymentIntents.create({
                 amount: amount,
                 currency: "usd",
@@ -61,7 +60,6 @@ async function run() {
                 clientSecret: paymentIntent.client_secret,
             });
         });
-
 
         app.post('/payments', async (req, res) => {
             const payment = req.body;
@@ -78,13 +76,11 @@ async function run() {
             res.send(result);
         })
 
-
         app.get('/cars', async (req, res) => {
             const query = {};
-            const cars = await carsCollection.find(query).toArray(); //.limit(3)
+            const cars = await carsCollection.find(query).limit(3).toArray();
             res.send(cars);
         })
-
 
         app.get('/viewallcars', async (req, res) => {
             const query = {};
@@ -97,25 +93,6 @@ async function run() {
             const categories = await categoriesCollection.find(query).toArray();
             res.send(categories);
         })
-
-
-        // app.get('/category/:id', (req, res) => {
-        //     const id = req.params.id;
-        //     const query = { _id: ObjectId(id) };
-        //     categoriesCollection.find(query)
-        //         .toArray((err, documents) => {
-        //             res.send(documents[0]);
-        //         })
-        // }
-        //     if (id === '08') {
-        //         const query = carsCollection.find()
-        //         res.send();
-        //     }
-        //     else {
-        //         const category_news = news.filter(n => n.category_id === id);
-        //         res.send(category_news);
-        //     }
-        // })
 
 
         app.get('/orders', async (req, res) => {
@@ -132,19 +109,16 @@ async function run() {
 
         app.post('/orders', async (req, res) => {
             const order = req.body;
-
             // Already Exist Check
             const query = {
                 model: order.model,
                 email: order.email,
                 price: order.price,
             };
-
             const alreadyExist = await ordersCollection.findOne(query).toArray();
             if (alreadyExist.length) {
                 return res.send({ acknowledged: false, message: 'Already Exist' });
             }
-
             const result = await ordersCollection.insertOne(order);
             res.send(result);
         })
@@ -178,8 +152,6 @@ async function run() {
             res.send(orders);
         })
 
-
-
         app.get('/jwt', async (req, res) => {
             const email = req.query.email;
             const query = { email: email };
@@ -198,6 +170,24 @@ async function run() {
             res.send(users);
         })
 
+        app.delete('/users/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) };
+            const result = await usersCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        app.delete('/wishlist/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) };
+            const result = await wishlistCollection.deleteOne(query);
+            res.send(result);
+        })
+
+        app.delete('/cars/:id', async (req, res) => {
+            const query = { _id: ObjectId(req.params.id) };
+            const result = await carsCollection.deleteOne(query);
+            res.send(result);
+        })
+
         app.get('/users/buyers', async (req, res) => {
             const query = { role: 'buyer' };
             const buyers = await usersCollection.find(query).toArray();
@@ -210,11 +200,31 @@ async function run() {
             res.send(sellers);
         })
 
+        app.get('/cars/category/:id', async (req, res) => {
+            const query = { category_id: req.params.id };
+            const categoryCars = await carsCollection.find(query).toArray();
+            res.send(categoryCars);
+        })
+
         app.get('/users/admin/:email', async (req, res) => {
             const email = req.params.email;
             const query = { email };
             const user = await usersCollection.findOne(query);
             res.send({ isAdmin: user?.role == 'admin' });
+        })
+
+        app.get('/users/seller/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email };
+            const user = await usersCollection.findOne(query);
+            res.send({ isSeller: user?.role == 'seller' });
+        })
+
+        app.get('/users/buyer/:email', async (req, res) => {
+            const email = req.params.email;
+            const query = { email };
+            const user = await usersCollection.findOne(query);
+            res.send({ isBuyer: user?.role == 'buyer' });
         })
 
         app.post('/users', async (req, res) => {
@@ -223,7 +233,7 @@ async function run() {
             res.send(result);
         })
 
-        app.put('/users/admin/:id', verifyJWT, async (req, res) => {
+        app.put('/users/admin/:id', async (req, res) => { //verifyJWT,
             const decodedEmail = req.decoded.email;
             const query = { email: decodedEmail };
             const user = await usersCollection.findOne(query);
@@ -233,7 +243,7 @@ async function run() {
 
             const id = req.params.id;
             const filter = { _id: ObjectId(id) };
-            const options = { upset: true };
+            const options = { upsert: true };
             const updateDoc = {
                 $set: {
                     role: 'admin'
@@ -281,31 +291,6 @@ run().catch(console.log);
 app.get('/', (req, res) => {
     res.send('Hello Xclusive Cars!');
 });
-
-// app.get('/cars', async (req, res) => {
-//     res.send(cars);
-// })
-
-// app.get('/cars/:id', async (req, res) => {
-//     const car = cars.find(car => car.id === req.params.id);
-//     res.send(car);
-// })
-
-// app.get('/categories', async (req, res) => {
-//     res.send(categories);
-// })
-
-// app.get('/category/:id', (req, res) => {
-//     const { id } = req.params;
-//     const car = cars.filter((car) => car.category.catId === id);
-//     res.send(car);
-// })
-
-// app.get('/category/:id', (req, res) => {
-//     const id = req.params.id;
-//     const category = cars.filter(ct => ct.catId === id);
-//     res.send(category);
-// })
 
 app.listen(port, () => {
     console.log(`Xclusive Cars App Running at http://localhost:${port}`);
