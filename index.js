@@ -95,6 +95,15 @@ async function run() {
             res.send(categories);
         })
 
+        app.get('/category/:id', (req, res) => {
+            const id = req.params.id;
+            const categoryCars = carsCollection.findMany(c => c.category_id === id);
+            res.send(categoryCars);
+
+            // const category_course = courses.filter(ct => ct.category_id === id);
+            // res.send(category_course);
+        })
+
 
         app.get('/orders', async (req, res) => {
             const query = {};
@@ -110,7 +119,6 @@ async function run() {
 
         app.post('/orders', async (req, res) => {
             const order = req.body;
-            // Already Exist Check
             const query = {
                 model: order.model,
                 email: order.email,
